@@ -1,0 +1,35 @@
+---
+services:
+  tdarr:
+    container_name: tdarr
+    image: ghcr.io/haveagitgat/tdarr:latest
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8265:8265 # webUI port
+      - 8266:8266 # server port
+    environment:
+      - TZ=${TZ}
+      - PUID=${TDARR_PUID}
+      - PGID=${PGID}
+      - UMASK_SET=002
+      - serverIP=0.0.0.0
+      - serverPort=8266
+      - webUIPort=8265
+      - internalNode=true
+      - inContainer=true
+      - ffmpegVersion=6
+      - nodeName=MyInternalNode
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ${DOCKER_CONFIG_PATH}/tdarr/server:/app/server
+      - ${DOCKER_CONFIG_PATH}/tdarr/configs:/app/configs
+      - ${DOCKER_CONFIG_PATH}/tdarr/logs:/app/logs
+      - ${TELEVISION_PATH}:/mnt/Television
+      - ${MOVIES_PATH}:/mnt/Movies
+      - ${STUFF_PATH}:/mnt/Stuff
+      - ${VIDEOS_PATH}:/mnt/Videos
+      - ${TDARR_TEMP_PATH}:/temp
+    devices:
+      - /dev/dri:/dev/dri
