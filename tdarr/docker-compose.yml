@@ -23,9 +23,9 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
-      - ${DOCKER_CONFIG_PATH}/tdarr/server:/app/server
-      - ${DOCKER_CONFIG_PATH}/tdarr/configs:/app/configs
-      - ${DOCKER_CONFIG_PATH}/tdarr/logs:/app/logs
+      - ../data/tdarr/server:/app/server
+      - ../data/tdarr/configs:/app/configs
+      - ../data/tdarr/logs:/app/logs
       - ${TELEVISION_PATH}:/mnt/Television
       - ${MOVIES_PATH}:/mnt/Movies
       - ${STUFF_PATH}:/mnt/Stuff
