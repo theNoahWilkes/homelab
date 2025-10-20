@@ -1,0 +1,10 @@
+---
+services:
+  czkawka:
+    container_name: czkawka
+    image: jlesage/czkawka
+    restart: unless-stopped
+    ports:
+      - 5800:5800
+    volumes:
+      - ${DOCKER_CONFIG_PATH}/czkawka/config:/config
