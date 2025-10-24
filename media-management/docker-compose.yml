@@ -9,8 +9,8 @@ services:
       - PUID=${SONARR_PUID}
       - PGID=${PGID}
     volumes:
-      - ../data/sonarr/data:/data
-      - ../data/sonarr/config:/config
+      - ${DOCKER_CONFIG_PATH}/sonarr/data:/data
+      - ${DOCKER_CONFIG_PATH}/sonarr/config:/config
       - ${TELEVISION_PATH}:/mnt/Television
       - ${DOWNLOADS_PATH}:/mnt/downloads
     ports:
@@ -28,7 +28,7 @@ services:
     volumes:
       - ${MOVIES_PATH}:/mnt/Movies
       - ${DOWNLOADS_PATH}:/mnt/downloads
-      - ../data/radarr/config:/config
+      - ${DOCKER_CONFIG_PATH}/radarr/config:/config
     ports:
       - 7878:7878/tcp
 
@@ -40,7 +40,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ../data/lidarr/config:/config
+      - ${DOCKER_CONFIG_PATH}/lidarr/config:/config
       - ${MUSIC_PATH}:/mnt/Music
       - ${DOWNLOADS_PATH}:/mnt/downloads
     ports:

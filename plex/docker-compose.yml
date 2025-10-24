@@ -13,7 +13,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=${PLEX_CLAIM}
     volumes:
-      - ../data/plex/config:/config
+      - ${DOCKER_CONFIG_PATH}/plex/config:/config
       - ${TELEVISION_PATH}:/mnt/Television
       - ${MOVIES_PATH}:/mnt/Movies
     restart: unless-stopped

@@ -10,7 +10,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ../data/jellyfin/config:/config
+      - ${DOCKER_CONFIG_PATH}/jellyfin/config:/config
       - ${STUFF_PATH}:/mnt/Stuff
     ports:
       - 8096:8096

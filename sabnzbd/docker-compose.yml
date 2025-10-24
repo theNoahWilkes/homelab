@@ -8,7 +8,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ../data/sabnzbd/config:/config
+      - ${DOCKER_CONFIG_PATH}/sabnzbd/config:/config
       - ${INCOMPLETE_DOWNLOADS_PATH}:/incomplete-downloads
       - ${DOWNLOADS_PATH}:/mnt/downloads
     ports:
