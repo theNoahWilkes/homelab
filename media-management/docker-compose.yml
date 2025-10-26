@@ -46,3 +46,20 @@ services:
       - ${DOWNLOADS_PATH}:/mnt/downloads
     ports:
       - 8686:8686
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=${BAZARR_PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${DOCKER_CONFIG_PATH}/bazarr/config:/config
+      - ${MOVIES_PATH}:/movies
+      - ${TELEVISION_PATH}:/tv
+      - ${DOCKER_CONFIG_PATH}/bazarr/subtitles:/subtitles
+    ports:
+      - 6767:6767
+    restart: unless-stopped
