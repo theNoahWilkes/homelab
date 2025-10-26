@@ -35,6 +35,7 @@ services:
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
+    restart: unless-stopped
     environment:
       - PUID=${LIDARR_PUID}
       - PGID=${PGID}
