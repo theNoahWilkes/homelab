@@ -35,7 +35,6 @@ services:
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
-    restart: unless-stopped
     environment:
       - PUID=${LIDARR_PUID}
       - PGID=${PGID}
@@ -57,8 +56,8 @@ services:
       - TZ=${TZ}
     volumes:
       - ${DOCKER_CONFIG_PATH}/bazarr/config:/config
-      - ${MOVIES_PATH}:/movies
-      - ${TELEVISION_PATH}:/tv
+      - ${MOVIES_PATH}:/mnt/Movies
+      - ${TELEVISION_PATH}:/mnt/Television
       - ${DOCKER_CONFIG_PATH}/bazarr/subtitles:/subtitles
     ports:
       - 6767:6767
