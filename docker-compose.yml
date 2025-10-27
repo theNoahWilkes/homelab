@@ -2,8 +2,8 @@
 include:
   - media-management/docker-compose.yml
   - sabnzbd/docker-compose.yml
-  #  - plex/docker-compose.yml
-  #  - jellyfin/docker-compose.yml
+    #- plex/docker-compose.yml
+  - jellyfin/docker-compose.yml
   #  - tdarr/docker-compose.yml
   #  - portainer/docker-compose.yml
   # - czkawka/docker-compose.yml
